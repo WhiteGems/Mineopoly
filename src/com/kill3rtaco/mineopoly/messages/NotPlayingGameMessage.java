@@ -5,11 +5,11 @@ import com.kill3rtaco.tacoapi.api.TacoMessage;
 public class NotPlayingGameMessage extends TacoMessage {
 
 	public NotPlayingGameMessage(){
-		this.message = "You are not playing Mineopoly";
+		this.message = "你没在玩Mineopoly";
 	}
 	
 	public NotPlayingGameMessage(String name){
-		this.message = "&cPlayer &6" + name + " &cis not playing Mineopoly";
+		this.message = "&c玩家&6" + name + " &c没在玩Mineopoly";
 	}
 	
 }
