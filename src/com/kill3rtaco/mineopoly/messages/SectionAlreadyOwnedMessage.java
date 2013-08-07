@@ -13,9 +13,9 @@ public class SectionAlreadyOwnedMessage extends TacoMessage {
 		OwnableSection space = (OwnableSection) section;
 		MineopolyPlayer owner = space.getOwner();
 		if(owner.getName().equalsIgnoreCase(Mineopoly.plugin.getGame().getPlayerWithCurrentTurn().getName()))
-			this.message = "&cYou already own the space " + section.getColorfulName();
+			this.message = "&c你已经拥有了这块地:" + section.getColorfulName();
 		else
-			this.message = "&cThe space " + section.getColorfulName() + " &cis already owned by &6" + space.getOwner().getName();
+			this.message = "&c这块地:" + section.getColorfulName() + "&c已经属于&6" + space.getOwner().getName();
 	}
 	
 }
