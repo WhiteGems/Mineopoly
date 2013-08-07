@@ -5,11 +5,11 @@ import com.kill3rtaco.tacoapi.api.TacoMessage;
 public class CannotPerformActionMessage extends TacoMessage {
 	
 	public CannotPerformActionMessage(){
-		this.message = "&cYou cannot do that right now";
+		this.message = "&c你现在不能那样做";
 	}
 	
 	public CannotPerformActionMessage(String action){
-		this.message = "&cYou cannot " + action;
+		this.message = "&c你不能" + action;
 	}
 
 }
