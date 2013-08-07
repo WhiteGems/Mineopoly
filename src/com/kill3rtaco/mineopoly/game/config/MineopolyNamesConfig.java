@@ -13,34 +13,34 @@ public class MineopolyNamesConfig extends TacoConfig {
 
 	@Override
 	protected void setDefaults() {
-		addDefaultValue("properties.mediterranean_ave", "Nether Ave"); 			//brown
-		addDefaultValue("properties.baltic_ave", "Slimey Street");
-		addDefaultValue("properties.oriental_ave", "Temple Road"); 				//light_blue
-		addDefaultValue("properties.vermont_ave", "Stronghold Lane");
-		addDefaultValue("properties.connecticut_ave", "Dungeon Ave");
-		addDefaultValue("properties.st_charles_place", "St. Blaze Place"); 		//magenta
-		addDefaultValue("properties.states_ave", "Zombe Gardens");
-		addDefaultValue("properties.virginia_ave", "Spider Lane");
-		addDefaultValue("properties.st_james_place", "Enderman Place"); 		//orange
-		addDefaultValue("properties.tennessee_ave", "Notch Place");
-		addDefaultValue("properties.new_york_ave", "Skeleton Ave");
-		addDefaultValue("properties.kentucky_ave", "Bed Place"); 				//red
-		addDefaultValue("properties.indiana_ave", "Bow and Arrow Place");
-		addDefaultValue("properties.illinois_ave", "Wolf Lane");
-		addDefaultValue("properties.atlantic_ave", "Good Street"); 				//yellow
-		addDefaultValue("properties.ventor_ave", "Bad Street");
-		addDefaultValue("properties.marvin_gardens", "Ugly Street");
-		addDefaultValue("properties.pacific_ave", "Cookie Drive"); 				//green
-		addDefaultValue("properties.north_carolina_ave", "Watermelon Ave"); 
-		addDefaultValue("properties.pennsylvania_ave", "Pumpkin Road");
-		addDefaultValue("properties.park_place", "Harbor Ave"); 				//dark_blue
-		addDefaultValue("properties.boardwalk", "Marshmellow Drive");
-		addDefaultValue("railroads.reading", "Enchanted");						//railroads
-		addDefaultValue("railroads.pennsylvania", "Creeper");
-		addDefaultValue("railroads.b_o", "TNT");
-		addDefaultValue("railroads.short_line", "The End");
-		addDefaultValue("companies.electric", "Redstone");						//utilities
-		addDefaultValue("companies.water", "Water");
+		addDefaultValue("properties.mediterranean_ave", "下界大道"); 			//brown
+		addDefaultValue("properties.baltic_ave", "史莱姆街");
+		addDefaultValue("properties.oriental_ave", "神庙路"); 				//light_blue
+		addDefaultValue("properties.vermont_ave", "碉堡巷");
+		addDefaultValue("properties.connecticut_ave", "地牢街");
+		addDefaultValue("properties.st_charles_place", "圣.烈焰人之地"); 		//magenta
+		addDefaultValue("properties.states_ave", "僵尸花园");
+		addDefaultValue("properties.virginia_ave", "蜘蛛巷");
+		addDefaultValue("properties.st_james_place", "末影人之地"); 		//orange
+		addDefaultValue("properties.tennessee_ave", "Notch之地");
+		addDefaultValue("properties.new_york_ave", "骷髅大道");
+		addDefaultValue("properties.kentucky_ave", "滚床大街"); 				//red
+		addDefaultValue("properties.indiana_ave", "弓与箭之地");
+		addDefaultValue("properties.illinois_ave", "狼之巷");
+		addDefaultValue("properties.atlantic_ave", "好人巷"); 				//yellow
+		addDefaultValue("properties.ventor_ave", "坏胚街");
+		addDefaultValue("properties.marvin_gardens", "丑人巷");
+		addDefaultValue("properties.pacific_ave", "曲奇快车道"); 				//green
+		addDefaultValue("properties.north_carolina_ave", "西瓜大街"); 
+		addDefaultValue("properties.pennsylvania_ave", "南瓜路");
+		addDefaultValue("properties.park_place", "海港街"); 				//dark_blue
+		addDefaultValue("properties.boardwalk", "棉花糖快车道");
+		addDefaultValue("railroads.reading", "附魔大道");						//railroads
+		addDefaultValue("railroads.pennsylvania", "爬行者巷");
+		addDefaultValue("railroads.b_o", "TNT大道");
+		addDefaultValue("railroads.short_line", "末地");
+		addDefaultValue("companies.electric", "红石街");						//utilities
+		addDefaultValue("companies.water", "流水巷");
 	}
 
 }
