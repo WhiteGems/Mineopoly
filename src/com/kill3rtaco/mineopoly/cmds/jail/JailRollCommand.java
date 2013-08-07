@@ -15,7 +15,7 @@ import com.kill3rtaco.tacoapi.api.TacoCommand;
 public class JailRollCommand extends TacoCommand{
 
 	public JailRollCommand() {
-		super("roll", new String[]{}, "", "Try to roll doubles", "");
+		super("roll", new String[]{}, "", "尝试掷出偶数", "");
 	}
 
 	@Override
@@ -30,31 +30,31 @@ public class JailRollCommand extends TacoCommand{
 				MineopolyPlayer p = Mineopoly.plugin.getGame().getBoard().getPlayer(player);
 				if(p.hasTurn()){
 					if(!p.isJailed()){
-						p.sendMessage("&cYou cannot use that command because you aren't jailed. Please use &6/mineopoly roll &6instead");
+						p.sendMessage("&c你不能使用那个指令, 因为你并不在监狱内. 请使用 &6/mineopoly roll &6指令");
 					}else{
 						if(p.canRoll()){
 							Random random = new Random();
 							int roll1 = random.nextInt(6) + 1;
 							int roll2 = random.nextInt(6) + 1;
 							if(roll1 == roll2){
-								Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + p.getName() + " &3rolled doubles and was let out of jail", p);
-								p.sendMessage("&3You rolled doubles and were let out of jail");
-								p.sendMessage("&3You are out of jail. You can now use &b/" + Mineopoly.getMAlias()+ " roll on your next turn");
+								Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + p.getName() + " &3已掷出偶数并已离开监狱", p);
+								p.sendMessage("&3你掷出了偶数并已离开监狱");
+								p.sendMessage("&3你已离开监狱. 你现在可以使用 &b/" + Mineopoly.getMAlias()+ " 来掷骰子进行下一轮");
 								p.setJailed(false, true);
 							}else{
 								if(p.getJailRolls() == 2 && p.getBalance() >= 50){
-									Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + p.getName() + " &3rolled three times without rolling doubles and was let out of jail", p);
-									p.sendMessage("&3You were let out of jail because you rolled 3 times without rolling doubles");
-									p.sendMessage("&3You are out of jail. You can now use &b/" + Mineopoly.getMAlias()+ " roll on your next turn");
+									Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + p.getName() + " &3连续三次都没有掷出偶数, 并已离开监狱", p);
+									p.sendMessage("&3你因为连续三次未能掷出偶数而离开监狱");
+									p.sendMessage("&3你已离开监狱. 你现在可以使用 &b/" + Mineopoly.getMAlias()+ " 来掷骰子进行下一轮");
 									p.setJailed(false, true);
 								}else if(!(p.getBalance() >= 50)){
-									Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + p.getName() + " &3rolled three times, but cannot make bail (&250&3) and was not let out of jail", p);
-									p.sendMessage("&3You were not let out of jail because you cannot make bail (&250&3)");
-									p.sendMessage("&3You must stay until you roll doubles, use a &bGet out of Jail Free &3card, or have &250");
+									Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + p.getName() + " &3连续三次都没有掷出偶数, 但是不能缴纳保释金 (&250&3) 所以不能离开监狱", p);
+									p.sendMessage("&3你因为不能缴纳保释金 (&250&3) 而不能离开监狱");
+									p.sendMessage("&3你必须要掷出偶数才能离开, 或者使用 &b离开监狱 &3卡片, 或者赚取 &250");
 									p.setTurn(false, false);
 								}else{
-									Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + p.getName() + " &3rolled and was not let out of jail", p);
-									p.sendMessage("&3You were not let of jail");
+									Mineopoly.plugin.getGame().getChannel().sendMessage("&3已掷出 &b" + p.getName() + " &3并不能离开监狱", p);
+									p.sendMessage("&3你不能离开监狱");
 									p.setJailRolls(p.getJailRolls() + 1);
 									p.setTurn(false, false);
 								}

@@ -15,7 +15,7 @@ import com.kill3rtaco.tacoapi.api.TacoCommand;
 public class JailBailCommand extends TacoCommand {
 
 	public JailBailCommand() {
-		super("bail", new String[]{"pay-bail", "b"}, "", "Pay your bail", "");
+		super("bail", new String[]{"pay-bail", "b"}, "", "支付你的保释金", "");
 	}
 
 	@Override
@@ -36,9 +36,9 @@ public class JailBailCommand extends TacoCommand {
 					int bail = Mineopoly.houseRules.bailPrice();
 					if(mp.hasMoney(bail)){
 						mp.payPot(bail);
-						Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + mp.getName() + " &3paid bail &b(&2" + bail + "&b) and was let out of jail", mp);
-						mp.sendMessage("&3You paid bail &b(&2" + bail + "&b) and were let out of jail");
-						mp.sendMessage("&3You are out of jail. You can now use &b/" + Mineopoly.getMAlias() + " roll on your next turn");
+						Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + mp.getName() + " &3支付了保释金 &b(&2" + bail + "&b) 并已离开了监狱", mp);
+						mp.sendMessage("&3你已支付保释金 &b(&2" + bail + "&b) 并已离开了监狱");
+						mp.sendMessage("&3你已离开了监狱. 你现在可以使用 &b/" + Mineopoly.getMAlias() + " 来掷骰子进行下一轮");
 						mp.setJailed(false, true);
 					}else{
 						mp.sendMessage(new InsufficientFundsMessage());

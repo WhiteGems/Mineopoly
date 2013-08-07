@@ -14,7 +14,7 @@ import com.kill3rtaco.tacoapi.api.TacoCommand;
 public class JailCardCommand extends TacoCommand{
 
 	public JailCardCommand() {
-		super("card", new String[]{"goojf", "gojf", "out"}, "", "Use a Get Out of Jail Free card", "");
+		super("card", new String[]{"goojf", "gojf", "out"}, "", "使用一张离开监狱卡", "");
 	}
 
 	@Override
@@ -37,11 +37,11 @@ public class JailCardCommand extends TacoCommand{
 								mp.takeCommunityChestJailCard();
 								Mineopoly.plugin.getGame().getBoard().getPot().addCommunityChestJailCard();
 							}
-							Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + mp.getName() + " &3has used a &bGet out of Jail Free &3card", mp);
-							mp.sendMessage("&3You are out of jail. You can now use &b/" + Mineopoly.getMAlias() + " roll on your next turn");
+							Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + mp.getName() + " &3已使用了一张 &b离开监狱 &3卡片", mp);
+							mp.sendMessage("&3你已离开监狱. 你现在可以使用 &b/" + Mineopoly.getMAlias() + " 来掷骰子进行下一轮");
 							mp.setJailed(false, true);
 						}else{
-							mp.sendMessage("&cYou do not have a &6Get out of Jail Free &ccard to use");
+							mp.sendMessage("&c你并没有 &6离开监狱 &c卡片可使用");
 						}
 					}else{
 						mp.sendMessage(new NotInJailMessage());
