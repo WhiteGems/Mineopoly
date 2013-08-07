@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.menus;
+﻿package com.kill3rtaco.mineopoly.game.menus;
 
 public enum Action {
 	

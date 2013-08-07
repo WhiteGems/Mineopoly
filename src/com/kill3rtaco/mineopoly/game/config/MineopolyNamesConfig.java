@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.config;
+﻿package com.kill3rtaco.mineopoly.game.config;
 
 import java.io.File;
 

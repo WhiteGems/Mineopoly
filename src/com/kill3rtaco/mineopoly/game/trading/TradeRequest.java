@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.trading;
+﻿package com.kill3rtaco.mineopoly.game.trading;
 
 import com.kill3rtaco.mineopoly.game.MineopolyPlayer;
 import com.kill3rtaco.mineopoly.game.sections.OwnableSection;

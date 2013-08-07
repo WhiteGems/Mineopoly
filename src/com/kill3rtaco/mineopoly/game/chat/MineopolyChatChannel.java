@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.chat;
+﻿package com.kill3rtaco.mineopoly.game.chat;
 
 import java.util.ArrayList;
 

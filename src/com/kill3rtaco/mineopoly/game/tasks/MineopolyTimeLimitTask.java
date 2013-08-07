@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.tasks;
+﻿package com.kill3rtaco.mineopoly.game.tasks;
 
 import com.kill3rtaco.mineopoly.Mineopoly;
 

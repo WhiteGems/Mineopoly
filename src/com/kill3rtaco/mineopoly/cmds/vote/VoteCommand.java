@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.cmds.vote;
+﻿package com.kill3rtaco.mineopoly.cmds.vote;
 
 import org.bukkit.entity.Player;
 

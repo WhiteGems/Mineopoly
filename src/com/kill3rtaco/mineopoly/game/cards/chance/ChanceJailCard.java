@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.cards.chance;
+﻿package com.kill3rtaco.mineopoly.game.cards.chance;
 
 import com.kill3rtaco.mineopoly.game.MineopolyPlayer;
 

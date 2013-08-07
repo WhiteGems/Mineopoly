@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.menus;
+﻿package com.kill3rtaco.mineopoly.game.menus;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

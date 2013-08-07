@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.tasks.managers;
+﻿package com.kill3rtaco.mineopoly.game.tasks.managers;
 
 import java.util.Set;
 import java.util.HashMap;

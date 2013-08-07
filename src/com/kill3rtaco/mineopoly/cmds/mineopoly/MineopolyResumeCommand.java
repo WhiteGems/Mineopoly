@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.cmds.mineopoly;
+﻿package com.kill3rtaco.mineopoly.cmds.mineopoly;
 
 import java.io.File;
 

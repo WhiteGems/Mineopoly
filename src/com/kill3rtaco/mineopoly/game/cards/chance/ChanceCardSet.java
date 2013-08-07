@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.cards.chance;
+﻿package com.kill3rtaco.mineopoly.game.cards.chance;
 
 import java.io.File;
 import java.util.ArrayList;

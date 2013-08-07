@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.cards.actions;
+﻿package com.kill3rtaco.mineopoly.game.cards.actions;
 
 import com.kill3rtaco.mineopoly.game.MineopolyPlayer;
 import com.kill3rtaco.mineopoly.game.cards.CardResult;

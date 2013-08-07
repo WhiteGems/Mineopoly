@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.listener;
+﻿package com.kill3rtaco.mineopoly.listener;
 
 import org.bukkit.Location;
 import org.bukkit.Material;

@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.cards.replacemethods;
+﻿package com.kill3rtaco.mineopoly.game.cards.replacemethods;
 
 import java.util.Random;
 

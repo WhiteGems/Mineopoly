@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.cmds.property;
+﻿package com.kill3rtaco.mineopoly.cmds.property;
 
 import java.util.ArrayList;
 

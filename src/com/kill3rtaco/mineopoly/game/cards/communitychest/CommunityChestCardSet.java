@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.cards.communitychest;
+﻿package com.kill3rtaco.mineopoly.game.cards.communitychest;
 
 import java.io.File;
 import java.util.ArrayList;

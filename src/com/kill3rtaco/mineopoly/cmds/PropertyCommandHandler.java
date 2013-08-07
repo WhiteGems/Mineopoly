@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.cmds;
+﻿package com.kill3rtaco.mineopoly.cmds;
 
 import org.bukkit.entity.Player;
 

@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game;
+﻿package com.kill3rtaco.mineopoly.game;
 
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

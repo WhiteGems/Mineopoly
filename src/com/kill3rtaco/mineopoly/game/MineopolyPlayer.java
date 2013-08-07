@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game;
+﻿package com.kill3rtaco.mineopoly.game;
 
 import java.util.ArrayList;
 import java.util.Collections;

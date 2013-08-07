@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.game.cards;
+﻿package com.kill3rtaco.mineopoly.game.cards;
 
 import com.kill3rtaco.mineopoly.game.cards.replacemethods.IdReplaceMethod;
 import com.kill3rtaco.mineopoly.game.cards.replacemethods.RandomDevReplaceMethod;

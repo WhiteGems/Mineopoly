@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.test;
+﻿package com.kill3rtaco.mineopoly.test;
 
 import java.io.File;
 import java.io.FileWriter;

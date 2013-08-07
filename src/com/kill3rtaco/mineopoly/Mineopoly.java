@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly;
+﻿package com.kill3rtaco.mineopoly;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class Mineopoly extends TacoPlugin{
 				}
 			}
 		}
-		chat.out("Disabled");
+		chat.out("已禁用");
 	}
 	
 	public void onStart(){
@@ -127,7 +127,7 @@ public class Mineopoly extends TacoPlugin{
 		game = new MineopolyGame();
 		long timeEnd = System.currentTimeMillis();
 		double time = (timeEnd - timeStart) / 1000;
-		if(game.isRunning()) chat.out("[Game] loaded in " + time + "s");
+		if(game.isRunning()) chat.out("[游戏] 已在 " + time + " 秒内载入完毕");
 		if(runTests && game.isRunning()) MineopolyPluginTester.run();
 	}
 	
@@ -136,7 +136,7 @@ public class Mineopoly extends TacoPlugin{
 		game = new MineopolyGame(save);
 		long timeEnd = System.currentTimeMillis();
 		double time = (timeEnd - timeStart) / 1000;
-		if(game.isRunning()) chat.out("[Game] loaded in " + time + "s");
+		if(game.isRunning()) chat.out("[游戏] 已在 " + time + " 秒内载入完毕");
 		game.setData();
 	}
 	
@@ -147,12 +147,12 @@ public class Mineopoly extends TacoPlugin{
 			ArrayList<String> bp = new ArrayList<String>();
 			try {
 				if(!banned.exists()){
-					chat.out("[Bans] Bans file not found, creating...");
+					chat.out("[封禁] 未找到封禁文件, 正在创建中...");
 					banned.createNewFile();
-					chat.out("[Bans] File created");
+					chat.out("[封禁] 文件已创建");
 					return bp;
 				}else{
-					chat.out("[Bans] Bans file found, reloading...");
+					chat.out("[封禁] 封禁文件已找到, 重新载入中...");
 					Scanner x = new Scanner(banned);
 					while(x.hasNextLine()){
 						String line = x.nextLine();
@@ -165,8 +165,8 @@ public class Mineopoly extends TacoPlugin{
 						}
 					}
 					x.close();
-					chat.out("[Bans] Found " + bp.size() + " banned players");
-					chat.out("[Bans] Done!");
+					chat.out("[封禁] 找到了 " + bp.size() + " 个封禁玩家");
+					chat.out("[封禁] 已完成!");
 				}
 			} catch (IOException e) {
 				return bp;
@@ -190,7 +190,7 @@ public class Mineopoly extends TacoPlugin{
 			}
 			x.close();
 			if(version == null || file == null || type == null || date == null){
-				chat.outWarn("Could not verify version");
+				chat.outWarn("不能验证版本");
 				return;
 			}
 			String[] vParts = getDescription().getVersion().split("\\.");
@@ -200,22 +200,22 @@ public class Mineopoly extends TacoPlugin{
 				int k = Integer.parseInt(vParts[i]); //plugin
 				if(j == k) continue;
 				if(j > k){
-					chat.outWarn("This version of Mineopoly (" + getDescription().getVersion() + ") is outdated." +
-							" Mineopoly v" + version + " was released on " + date);
-					chat.outWarn("You can download the new version at http://dev.bukkit.org/server-mods/files/" + file);
+					chat.outWarn("Mineopoly ( 版本号 " + getDescription().getVersion() + ") 已经过期." +
+							" Mineopoly 版本号 " + version + " 已在 " + date + " 时发布.");
+					chat.outWarn("你可以在此处下载最新版本: http://dev.bukkit.org/server-mods/files/" + file);
 					return;
 				}else if(j < k){
-					chat.outSevere("&cHow are you using a future version? Are you a dev?");
+					chat.outSevere("&c你怎么会在使用一个未来的版本? 你是一名开发者?");
 					return;
 				}
 			}
-			chat.out("&aThis is the current version of Mineopoly");
+			chat.out("&a这是目前最新版本的 Mineopoly");
 		} catch (MalformedURLException e) {
-			chat.outWarn("Could not verify version");
+			chat.outWarn("不能验证版本");
 		} catch (IOException e) {
-			chat.outWarn("Could not verify version");
+			chat.outWarn("不能验证版本");
 		} catch (IndexOutOfBoundsException e){
-			chat.outWarn("Could not verify version");
+			chat.outWarn("不能验证版本");
 		}
 	}
 	

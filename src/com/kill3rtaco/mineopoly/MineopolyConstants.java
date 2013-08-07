@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly;
+﻿package com.kill3rtaco.mineopoly;
 
 public class MineopolyConstants {
 

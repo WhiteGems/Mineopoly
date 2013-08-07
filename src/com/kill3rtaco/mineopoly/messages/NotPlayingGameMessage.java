@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.messages;
+﻿package com.kill3rtaco.mineopoly.messages;
 
 import com.kill3rtaco.tacoapi.api.TacoMessage;
 

@@ -1,4 +1,4 @@
-package com.kill3rtaco.mineopoly.cmds.jail;
+﻿package com.kill3rtaco.mineopoly.cmds.jail;
 
 import java.util.Random;
 
