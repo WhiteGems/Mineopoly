@@ -80,7 +80,7 @@ public class MineopolyListener implements Listener {
 									(nLocation.getZ() >= js.getJailCellLocation().getZ() + 5.5 || nLocation.getZ() <= js.getJailCellLocation().getZ() - 6)){
 //								player.teleport(js.getJailCellLocation());
 								player.teleport(event.getFrom());
-								mp.sendMessage("&cYou are &1jailed&c, do not try to escape. You can use a &6Get out of Jail Free &ccard if you need to." +
+								mp.sendMessage("&c你已被 &1关进监狱&c, 不要试图逃跑. 但是你可以使用 &6离开监狱 &c卡片来离开这里." +
 										" (&6/jail card&c)");
 							}
 						}else{
