@@ -12,7 +12,7 @@ import com.kill3rtaco.tacoapi.api.TacoCommandHandler;
 public class TradeCommandHandler extends TacoCommandHandler {
 
 	public TradeCommandHandler() {
-		super("trade", "Mineopoly Trading commands", "");
+		super("trade", "Mineopoly 交易指令", "");
 	}
 
 	@Override
@@ -31,8 +31,8 @@ public class TradeCommandHandler extends TacoCommandHandler {
 	protected void onPlayerCommand(Player player) {
 		String cmd = "trade";
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, TacoAPI.getChatUtils().createHeader("&c/" + cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Aliases&7: " + Mineopoly.plugin.getAliases(cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Commands&7: &b/" + cmd +" ? [page]");
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3缩写&7: " + Mineopoly.plugin.getAliases(cmd));
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3指令&7: &b/" + cmd +" ? [页数]");
 	}
 
 }

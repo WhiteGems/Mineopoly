@@ -10,13 +10,13 @@ import com.kill3rtaco.tacoapi.api.TacoCommandHandler;
 public class VoteCommandHandler extends TacoCommandHandler {
 
 	public VoteCommandHandler() {
-		super("vote", "Mineopoly voting commands", "");
+		super("vote", "Mineopoly 投票指令", "");
 	}
 
 	@Override
 	protected void registerCommands() {
-		registerCommand(new VoteCommand("no", new String[]{"continue"}, "Vote to keep the Mineopoly game running", false));
-		registerCommand(new VoteCommand("yes", new String[]{"end"}, "Vote to end the Mineopoly game", true));
+		registerCommand(new VoteCommand("no", new String[]{"continue"}, "投票来继续玩 Mineopoly 游戏", false));
+		registerCommand(new VoteCommand("yes", new String[]{"end"}, "投票终止 Mineopoly 游戏", true));
 	}
 
 	@Override
@@ -28,8 +28,8 @@ public class VoteCommandHandler extends TacoCommandHandler {
 	protected void onPlayerCommand(Player player) {
 		String cmd = "vote";
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, TacoAPI.getChatUtils().createHeader("&c/" + cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Aliases&7: " + Mineopoly.plugin.getAliases(cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Commands&7: &b/" + cmd +" ? [page]");
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3缩写&7: " + Mineopoly.plugin.getAliases(cmd));
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3指令&7: &b/" + cmd +" ? [页数]");
 	}
 
 }

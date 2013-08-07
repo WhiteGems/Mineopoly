@@ -18,7 +18,7 @@ import com.kill3rtaco.tacoapi.api.TacoCommandHandler;
 public class PropertyCommandHandler extends TacoCommandHandler {
 
 	public PropertyCommandHandler() {
-		super("property", "Mineopoly Property commands", "");
+		super("property", "Mineopoly 财产指令", "");
 	}
 
 	@Override
@@ -42,8 +42,8 @@ public class PropertyCommandHandler extends TacoCommandHandler {
 	protected void onPlayerCommand(Player player) {
 		String cmd = "property";
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, TacoAPI.getChatUtils().createHeader("&c/" + cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Aliases&7: " + Mineopoly.plugin.getAliases(cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Commands&7: &b/" + cmd +" ? [page]");
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3缩写&7: " + Mineopoly.plugin.getAliases(cmd));
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3指令&7: &b/" + cmd +" ? [页数]");
 	}
 
 }

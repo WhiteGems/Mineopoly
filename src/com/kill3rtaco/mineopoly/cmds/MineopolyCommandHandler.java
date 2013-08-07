@@ -30,7 +30,7 @@ import com.kill3rtaco.tacoapi.api.TacoCommandHandler;
 public class MineopolyCommandHandler extends TacoCommandHandler{
 
 	public MineopolyCommandHandler() {
-		super("mineopoly", "Mineopoly commands", "");
+		super("mineopoly", "Mineopoly 指令", "");
 	}
 
 	@Override
@@ -66,12 +66,12 @@ public class MineopolyCommandHandler extends TacoCommandHandler{
 	protected void onPlayerCommand(Player player) {
 		String cmd = "mineopoly";
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, TacoAPI.getChatUtils().createHeader("&c/" + cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Aliases&7: " + Mineopoly.plugin.getAliases(cmd));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3Commands&7: &b/" + cmd +" ? [page]");
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3缩写&7: " + Mineopoly.plugin.getAliases(cmd));
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&3指令&7: &b/" + cmd +" ? [页数]");
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "");
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, TacoAPI.getChatUtils().createHeader("&5Plugin Information"));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&6Author&7: &cKILL3RTACO");
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&6Version&7: &5" + Mineopoly.plugin.getDescription().getVersion());
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, TacoAPI.getChatUtils().createHeader("&5插件信息"));
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&6作者&7: &cKILL3RTACO &6汉化&7: &c白宝石小组");
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "&6版本&7: &5" + Mineopoly.plugin.getDescription().getVersion());
 	}
 
 }
