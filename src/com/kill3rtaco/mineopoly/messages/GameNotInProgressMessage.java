@@ -5,7 +5,7 @@ import com.kill3rtaco.tacoapi.api.TacoMessage;
 public class GameNotInProgressMessage extends TacoMessage {
 
 	public GameNotInProgressMessage(){
-		this.message = "&cThere isn't a Mineopoly game in progress right now";
+		this.message = "&c现在并没有进行Mineopoly游戏";
 	}
 	
 }

@@ -5,7 +5,7 @@ import com.kill3rtaco.tacoapi.api.TacoMessage;
 public class SectionNotFoundMessage extends TacoMessage {
 
 	public SectionNotFoundMessage() {
-		this.message = "&cSpace on board not found";
+		this.message = "&c未找到牌子上写的地方";
 	}
 
 }

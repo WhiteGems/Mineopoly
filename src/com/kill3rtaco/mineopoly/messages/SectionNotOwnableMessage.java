@@ -7,7 +7,7 @@ import com.kill3rtaco.tacoapi.api.TacoMessage;
 public class SectionNotOwnableMessage extends TacoMessage {
 
 	public SectionNotOwnableMessage(MineopolySection section, String action){
-		this.message = "&cYou cannot " + action + " the space &6" + section.getColorfulName();
+		this.message = "&c你不能" + action + "这块地:&6" + section.getColorfulName();
 	}
 	
 	
