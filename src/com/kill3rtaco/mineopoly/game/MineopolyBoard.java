@@ -1,4 +1,4 @@
-﻿package com.kill3rtaco.mineopoly.game;
+package com.kill3rtaco.mineopoly.game;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,24 +34,24 @@ public class MineopolyBoard implements Iterable<MineopolySection>{
 	private MineopolyPot pot = new MineopolyPot();
 	
 	public MineopolyBoard(){
-		Mineopoly.plugin.chat.out("[Game] [Board] Loading game board...");
+		Mineopoly.plugin.chat.out("[游戏] [棋盘] 载入游戏棋盘中...");
 		Location origin = Mineopoly.config.boardOrigin();
 		if(Mineopoly.config.getBoolean("mineopoly.schematic.needs_paste")){
 			WorldEditObject we = TacoAPI.getWorldEditAPI();
-			Mineopoly.plugin.chat.sendGlobalMessage("&ePasting Mineopoly board... There will be some lag");
+			Mineopoly.plugin.chat.sendGlobalMessage("&e粘贴 Mineopoly 棋盘中... 可能会有些卡顿");
 			we.pasteSchematic(origin.getWorld().getName(), Mineopoly.plugin.getDataFolder() + "/mineopoly.schematic", origin);
-			Mineopoly.plugin.chat.sendGlobalMessage("&ePaste Complete");
+			Mineopoly.plugin.chat.sendGlobalMessage("&e粘贴完成");
 			Mineopoly.config.setBoolean("mineopoly.schematic.needs_paste", false);
 		}
 		players = new ArrayList<MineopolyPlayer>();
 		sections = new ArrayList<MineopolySection>();
 		initSections();
 		initCardSets();
-		Mineopoly.plugin.chat.out("[Game] [Board] Done loading!");
+		Mineopoly.plugin.chat.out("[游戏] [棋盘] 完成载入!");
 	}
 	
 	private void initSections() {
-		Mineopoly.plugin.chat.out("[Game] [Board] [Sections] Loading board sections...");
+		Mineopoly.plugin.chat.out("[游戏] [棋盘] [区域] 载入棋盘区域中...");
 		// property(name, mColor, side, buyPrice, rent[]{site, 1h, 2h, 3h, 4h, hotel})
 		sections.add(new GoSquare());
 		sections.add(new Property(1, MineopolyConstants.N_MEDITERRANEAN, MineopolyColor.PURPLE, 0, 60, new int[]{2, 10, 30, 90, 160, 250}));
@@ -93,7 +93,7 @@ public class MineopolyBoard implements Iterable<MineopolySection>{
 		sections.add(new Property(37, MineopolyConstants.N_PARK, MineopolyColor.BLUE, 3, 350, new int[]{35, 175, 500, 1100, 1300, 1500}));
 		sections.add(new TaxSection(38, "Luxury Tax", '7', 3, 75));
 		sections.add(new Property(39, MineopolyConstants.N_BOARDWALK, MineopolyColor.BLUE, 3, 400, new int[]{50, 200, 600, 1400, 1700, 2000}));
-		Mineopoly.plugin.chat.out("[Game] [Board] [Sections] Done!");
+		Mineopoly.plugin.chat.out("[游戏] [棋盘] [区域] 完成!");
 	}
 	
 	public void initCardSets(){
@@ -264,8 +264,8 @@ public class MineopolyBoard implements Iterable<MineopolySection>{
 			TacoAPI.getPlayerAPI().setToLastGameMode(player);
 			Location location = Mineopoly.plugin.getGame().locations.get(p.getName());
 			if(location != null) TacoAPI.getPlayerAPI().teleport(player, location);
-			Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "Game mode reverted");
-			Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "Teleported to last known location");
+			Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "游戏模式已恢复");
+			Mineopoly.plugin.chat.sendPlayerMessageNoHeader(player, "传送至最后的所在地点");
 		}
 		players.clear();
 	}
