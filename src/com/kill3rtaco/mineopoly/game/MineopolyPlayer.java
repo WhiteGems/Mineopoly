@@ -68,7 +68,7 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 			if(roll1 == roll2 && !supressDoubles && !jailed){
 				this.hasTurn = true;
 				this.canRoll = true;
-				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + "&3 has ended their turn but rolled doubles, rolling again...");
+				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + "&3 已结束了他的回合, 但是他因为摇到了偶数所以将再掷一次骰子...");
 				roll();
 			}else{
 				Mineopoly.plugin.getGame().nextPlayer();
@@ -98,15 +98,15 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 			OwnableSection section = (OwnableSection)sectionOn;
 			if(section.isOwned()){
 				if(section.getOwner().isJailed() && !Mineopoly.houseRules.collectWhileJailed()){
-					Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + section.getOwner() + " &3cannot collect rent from &b" + getName() + 
-							" &3for landing on " + sectionOn.getColorfulName() + " &3because they are &1jailed", section.getOwner());
-					section.getOwner().sendMessage("&3You cannot collect rent from &b" + getName() + " &3for landing on " + sectionOn.getColorfulName() +
-							" &3because you are &1jailed");
+					Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + section.getOwner() + " &3不能因 &b" + getName() + 
+							" &3走在 " + sectionOn.getColorfulName() + " &3上而得到租金因为他已进入 &1监狱", section.getOwner());
+					section.getOwner().sendMessage("&3你将不会因为 &b" + getName() + " &3走在 " + sectionOn.getColorfulName() +
+							" &3上而支付租金, 因为你已进入 &1监狱");
 				}else{
 					if(!section.getOwner().getName().equalsIgnoreCase(getName())){
-						Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3paid &b" + section.getOwner().getName() +
-								" &2" + section.getRent() + " &3for landing on " + sectionOn.getColorfulName(), this);
-						sendMessage("&3You paid &b" + section.getOwner() + " &2" + section.getRent() + " &3for landing on " + sectionOn.getColorfulName());
+						Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3支付了 &b" + section.getOwner().getName() +
+								" &2" + section.getRent() + " &3由于踏上了 " + sectionOn.getColorfulName(), this);
+						sendMessage("&3你支付了 &b" + section.getOwner() + " &2" + section.getRent() + " &3由于踏上了 " + sectionOn.getColorfulName());
 						takeMoney(section.getRent());
 						section.getOwner().addMoney(section.getRent());
 					}
@@ -124,15 +124,15 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 		if(hasChanceJailCard()) cards++;
 		if(hasCommunityChestJailCard()) cards++;
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, TacoAPI.getChatUtils().createHeader("&3Mineopoly&7: &b" + getName()));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3Money&7: &2" + getBalance());
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3Rolls&7: &2" + getTotalRolls() + " &3On space: " + getCurrentSection().getColorfulName() + " &3(&b" + getCurrentSection().getId() + "&3)" +
-				(getCurrentSection().getId() == 10 ? (isJailed() ? "&7[&cJail&7]" : "&7[&aJust Visiting&7])") : ""));
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3Properties&7: &b" + ownedPropertiesSize());
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3金钱&7: &2" + getBalance());
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3骰数&7: &2" + getTotalRolls() + " &3于地盘: " + getCurrentSection().getColorfulName() + " &3(&b" + getCurrentSection().getId() + "&3)" +
+				(getCurrentSection().getId() == 10 ? (isJailed() ? "&7[&c监狱&7]" : "&7[&a只是参观&7])") : ""));
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&财产&7: &b" + ownedPropertiesSize());
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3Monopolies&7: &b" + monopolySize());
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3Get Out of Jail Free cards&7: &2" + (cards > 0 ? cards : "none"));
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&3免费离开监狱卡片&7: &2" + (cards > 0 ? cards : "无"));
 		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "");
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&8My properties: &7/mineopoly deeds " + getName());
-		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&8My monopolies: &7/mineopoly monopolies " + getName());
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&8我的财产: &7/mineopoly deeds " + getName());
+		Mineopoly.plugin.chat.sendPlayerMessageNoHeader(p, "&8我的monopolies: &7/mineopoly monopolies " + getName());
 	}
 	
 	public boolean hasMonopoly(MineopolyColor color){
@@ -165,7 +165,7 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 	}
 	
 	public void sendBalanceMessage(){
-		sendMessage("&3Your balance is now &2" + getBalance());
+		sendMessage("&3你的资金现在是 &2" + getBalance());
 	}
 	
 	public void payPot(int amount){
@@ -203,15 +203,15 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 			sum -= 40;
 		}
 
-		Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3rolled a &b" + roll1 + "&3 and a &b" + roll2, this);
+		Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3掷出了 &b" + roll1 + "&3 以及 &b" + roll2, this);
 		
 		if(roll1 == roll2){
 			doubleRolls++;
 			if(doubleRolls == 3){
 				doubleRolls = 0;
 				setJailed(true, true);
-				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + "&3 was jailed because they rolled doubles 3 times in a row", this);
-				sendMessage("&3You were jailed because you rolled doubles 3 times in a row");
+				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + "&3 由于三次掷出相同的数字而被关进监狱", this);
+				sendMessage("&3你因为三次掷出相同的数字而被关进监狱");
 			}else{
 				moveForward(sum);
 			}
@@ -244,10 +244,10 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 	private void moveForward(int forward){
 		MineopolySection next = Mineopoly.plugin.getGame().getBoard().getSection(forward);
 		if(!(getCurrentSection() instanceof FreeParkingSquare))
-			Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3landed on " + next.getColorfulName(), this);
-		sendMessage("&3You rolled a &b" + roll1 + "&3 and a &b" + roll2);
+			Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3停在了 " + next.getColorfulName(), this);
+		sendMessage("&3你掷出了 &b" + roll1 + "&3 以及 &b" + roll2);
 		if(!(getCurrentSection() instanceof FreeParkingSquare))
-			sendMessage("&3You landed on " + next.getColorfulName());
+			sendMessage("&3你停在了 " + next.getColorfulName());
 		setCurrentSection(next);
 	}
 	
