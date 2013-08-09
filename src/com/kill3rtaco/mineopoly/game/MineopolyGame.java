@@ -35,7 +35,7 @@ public class MineopolyGame {
 	public MineopolyGame(){
 		if(canStart()){
 			start = System.currentTimeMillis();
-			Mineopoly.plugin.chat.out("[Game] Loading new Mineopoly game...");
+			Mineopoly.plugin.chat.out("[游戏] 载入新的 Mineopoly 游戏...");
 			board = new MineopolyBoard();
 			channel = new MineopolyChatChannel();
 			addPlayers();
@@ -52,7 +52,7 @@ public class MineopolyGame {
 						.scheduleSyncRepeatingTask(Mineopoly.plugin, new MineopolyTipTask(), interval, 20 * interval);
 			}
 			this.running = true;
-			Mineopoly.plugin.chat.out("[Game] Done loading!");
+			Mineopoly.plugin.chat.out("[游戏] 载入完毕!");
 		}else{
 			this.running = false;
 		}
@@ -61,12 +61,12 @@ public class MineopolyGame {
 	public MineopolyGame(MineopolySaveGame save){
 		if(canStart(save)){
 			start = System.currentTimeMillis();
-			Mineopoly.plugin.chat.out("[Game] Loading game from file " + save.getFilename());
+			Mineopoly.plugin.chat.out("[游戏] 从文件 " + save.getFilename() + " 中载入游戏...");
 			this.save = save;
 			board = new MineopolyBoard();
 			channel = new MineopolyChatChannel();
 			this.loadedFromSave = true;
-			Mineopoly.plugin.chat.out("[Game] Done loading!");
+			Mineopoly.plugin.chat.out("[游戏] 载入完毕!");
 		}
 	}
 
@@ -85,14 +85,14 @@ public class MineopolyGame {
 	public void setData(){
 		if(!loadedFromSave) return;
 		addPlayers();
-		channel.sendMessage("&aSetting turn order...");
+		channel.sendMessage("&a设置轮流次序...");
 		String currentTurn = save.getString("game.current-turn");
 		String turnOrder = save.getString("game.turn-order");
 		if(save.contains("game.time-running")){
 			setTimeRunning(save.getTimeRunning());
 		}
 		String[] names = turnOrder.split(" ");
-		channel.sendMessage("&aSetting up MineopolyPot contents...");
+		channel.sendMessage("&a设置 MineopolyPot 内容...");
 		MineopolyPot pot = board.getPot();
 		pot.setMoney(save.getInt("board.pot.amount"));
 		if(save.getBoolean("board.pot.card_chance")){
@@ -107,7 +107,7 @@ public class MineopolyGame {
 			}
 		}
 		
-		channel.sendMessage("&aGiving properties and money to players...");
+		channel.sendMessage("&a正在分发财产给玩家们...");
 		for(MineopolyPlayer mp : board.getPlayers()){
 			String playerRoot = "players." + mp.getName();
 			List<Integer> properties = save.getIntList(playerRoot + ".properties.owned");
@@ -156,7 +156,7 @@ public class MineopolyGame {
 				mp.setGoPasses(Mineopoly.houseRules.purchaseAfterGoPasses());
 			}
 		}
-		channel.sendMessage("&aGame setup finished! Starting game...");
+		channel.sendMessage("&a游戏准备完毕! 准备开始游戏...");
 		nextPlayer();
 		this.sessionTaskId = Mineopoly.plugin.getServer().getScheduler()
 				.scheduleSyncRepeatingTask(Mineopoly.plugin, new MineopolySessionTask(), 0L, 20 * 5L);
@@ -174,7 +174,7 @@ public class MineopolyGame {
 	}
 	
 	private void addPlayers(){
-		Mineopoly.plugin.chat.out("[Game] [Players] Adding Players...");
+		Mineopoly.plugin.chat.out("[游戏] [玩家] 添加玩家中...");
 		if(loadedFromSave){
 			String turnOrder = save.getString("game.turn-order");
 			String[] names = turnOrder.split(" ");
@@ -183,7 +183,7 @@ public class MineopolyGame {
 				MineopolyPlayer mp = new MineopolyPlayer(player);
 				board.addPlayer(mp);
 				channel.addPlayer(mp);
-				Mineopoly.plugin.chat.out("[Game] [Players] Player added: " + mp.getName());
+				Mineopoly.plugin.chat.out("[游戏] [玩家] 已添加玩家: " + mp.getName());
 			}
 		}else{
 			int queueSize = Mineopoly.plugin.getQueue().getSize();
@@ -196,7 +196,7 @@ public class MineopolyGame {
 					MineopolyPlayer player = new MineopolyPlayer(p);
 					board.addPlayer(player);
 					channel.addPlayer(player);
-					Mineopoly.plugin.chat.out("[Game] [Players] Player added: " + player.getName());
+					Mineopoly.plugin.chat.out("[游戏] [玩家] 已添加玩家: " + player.getName());
 					Mineopoly.plugin.getQueue().removePlayer(index);
 					player.setCurrentSection(board.getSection(0), false);
 				}else{
@@ -204,7 +204,7 @@ public class MineopolyGame {
 				}
 			}
 		}
-		Mineopoly.plugin.chat.out("[Game] [Players] Done!");
+		Mineopoly.plugin.chat.out("[游戏] [玩家] 已完成!");
 	}
 	
 	public void nextPlayer(){
@@ -212,13 +212,13 @@ public class MineopolyGame {
 			index = 0;
 		board.getPlayers().get(index).setTurn(true, false);
 		MineopolyPlayer currPlayer = getPlayerWithCurrentTurn();
-		channel.sendMessage("&3It is &b" + currPlayer.getName() + "&3's turn", currPlayer);
+		channel.sendMessage("&3现在该 &b" + currPlayer.getName() + "&3 行动了", currPlayer);
 		if(currPlayer != null){
-			currPlayer.sendMessage("&3It is your turn");
+			currPlayer.sendMessage("&3现在该你行动了");
 			if(currPlayer.isJailed())
-				currPlayer.sendMessage("&3Use &b/" + Mineopoly.getJAlias() + " roll&3 to roll the dice!");
+				currPlayer.sendMessage("&3使用 &b/" + Mineopoly.getJAlias() + " roll&3 来掷骰子!");
 			else
-				currPlayer.sendMessage("&3Use &b/" + Mineopoly.getMAlias() + " roll&3 to roll the dice!");
+				currPlayer.sendMessage("&3使用 &b/" + Mineopoly.getMAlias() + " roll&3 来掷骰子!");
 		}
 		index++;
 	}
@@ -273,21 +273,21 @@ public class MineopolyGame {
 		if(tipTaskId > -1) Mineopoly.plugin.getServer().getScheduler().cancelTask(tipTaskId);
 		if(winner == null) winner = determineWinner();
 		board.removeAllPlayers();
-		Mineopoly.plugin.chat.sendGlobalMessage("&eThe Mineopoly game has ended");
-		Mineopoly.plugin.chat.sendGlobalMessage("&3" + winner.getName() + " &bis the winner!");
+		Mineopoly.plugin.chat.sendGlobalMessage("&eMineopoly 游戏已结束");
+		Mineopoly.plugin.chat.sendGlobalMessage("&3" + winner.getName() + " &b是本场比赛的第一名!");
 		if(TacoAPI.isEconAPIOnline()){
 			double reward = Mineopoly.config.winReward();
 			if(reward > 0){
 				String singular = TacoAPI.getEconAPI().currencyName();
 				String plural = TacoAPI.getEconAPI().currencyNamePlural();
-				Mineopoly.plugin.chat.sendGlobalMessage("&a" + winner.getName() + " &ewins &2" + reward + " " + (reward == 1 ? singular : plural) + " &efor winning");
+				Mineopoly.plugin.chat.sendGlobalMessage("&a" + winner.getName() + " &e得到了 &2" + reward + " " + (reward == 1 ? singular : plural) + " &e作为第一名的奖励");
 				TacoAPI.getEconAPI().deposit(winner.getName(), reward);
 			}
 		}
 		if(Mineopoly.plugin.getGame().canStart()){
-			Mineopoly.plugin.chat.sendGlobalMessage("&eThe next game will start soon");
+			Mineopoly.plugin.chat.sendGlobalMessage("&e下一场比赛很快就要开始了");
 		}else{
-			Mineopoly.plugin.chat.sendGlobalMessage("&eThe next game will start when there are enough players in the queue");
+			Mineopoly.plugin.chat.sendGlobalMessage("&e下一场比赛将会在有足够等候者的时候开始");
 		}
 		end = System.currentTimeMillis();
 	}
@@ -346,11 +346,11 @@ public class MineopolyGame {
 		long seconds = time % year % day % hour % minute / second;
 		
 		String timeString = "";
-		if(years > 0) timeString += years + "y ";
-		if(days > 0) timeString += days + "d ";
-		if(hours > 0) timeString += hours + "h ";
-		if(minutes > 0) timeString += minutes + "m ";
-		if(seconds > 0) timeString += seconds + "s ";
+		if(years > 0) timeString += years + "年 ";
+		if(days > 0) timeString += days + "日 ";
+		if(hours > 0) timeString += hours + "时 ";
+		if(minutes > 0) timeString += minutes + "分 ";
+		if(seconds > 0) timeString += seconds + "秒 ";
 		return timeString;
 	}
 	
@@ -413,12 +413,12 @@ public class MineopolyGame {
 		
 		if(player.hasMoney(1))
 			getBoard().getPot().addMoney(player.getBalance());
-		Mineopoly.plugin.chat.sendGlobalMessage("&3" + player.getName() + " &bhas been removed from the game (&3" + reason + "&b)");
+		Mineopoly.plugin.chat.sendGlobalMessage("&3" + player.getName() + " &b已经被移出游戏 (&3" + reason + "&b)");
 		MineopolyPlayer current = Mineopoly.plugin.getGame().getPlayerWithCurrentTurn();
 		boolean next = player.getName().equalsIgnoreCase(current.getName());
 		board.removePlayer(player);
 		if(board.getPlayers().size() == 1){
-			Mineopoly.plugin.chat.sendGlobalMessage("&3" + board.getPlayers().get(0).getName() + " &bis the winner!");
+			Mineopoly.plugin.chat.sendGlobalMessage("&3" + board.getPlayers().get(0).getName() + " &b获得了胜利!");
 			end();
 			return;
 		}
@@ -444,7 +444,7 @@ public class MineopolyGame {
 		continueVotes = 0;
 		endVotes = 0;
 		pollsOpen = true;
-		channel.sendPlayersMessage("&3Someone wants to end the game! The voting polls are now open!");
+		channel.sendPlayersMessage("&3有人想结束游戏! 投票现已开始!");
 		voteStart = System.currentTimeMillis();
 		votingTaskId = Mineopoly.plugin.getServer().getScheduler()
 				.scheduleSyncRepeatingTask(Mineopoly.plugin, new MineopolyVotingTask(), 0L, 20L);
@@ -452,14 +452,14 @@ public class MineopolyGame {
 	
 	public void closePolls(){
 		pollsOpen = false;
-		channel.sendPlayersMessage("&3The voting polls are closed!");
-		channel.sendPlayersMessage("&3Results&7: &9Continue &7- &b" + continueVotes + " &9End &7- &b" + endVotes);
+		channel.sendPlayersMessage("&3投票已停止!");
+		channel.sendPlayersMessage("&3结果&7: &9继续游戏 &7- &b" + continueVotes + " &9停止游戏 &7- &b" + endVotes);
 		if(testVotes()){
 			end();
 		}else{
 			continueVotes = 0;
 			endVotes = 0;
-			channel.sendPlayersMessage("&3The game will continue");
+			channel.sendPlayersMessage("&3游戏将继续进行");
 		}
 		Mineopoly.plugin.getServer().getScheduler().cancelTask(votingTaskId);
 	}
