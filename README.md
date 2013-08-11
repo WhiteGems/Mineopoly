@@ -6,4 +6,4 @@ Monopoly for Bukkit servers
 * Community Chest Cards
 * Chance Cards
 
-# 而且还是中文版哎~
+## 而且还是中文版哎~
