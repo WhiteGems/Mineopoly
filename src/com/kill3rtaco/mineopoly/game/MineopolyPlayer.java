@@ -335,16 +335,16 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 				needsGoMoney = true;
 			}else if(goMoney && totalRolls > 1 && section.getId() == 0 && Mineopoly.houseRules.landOnGoBonus() > 0){
 				int bonus = Mineopoly.houseRules.landOnGoBonus();
-				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &landed on &6Go &3and was given &2" + bonus + " as a bonus", this);
-				sendMessage("&3You landed on &6Go &3and were given &2" + bonus + " as a bonus");
+				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3停在了 &6出发 &3并已获得 &2" + bonus + " 作为奖励", this);
+				sendMessage("&3你停在了 &6出发 &3并已得到 &2" + bonus + " 作为奖励");
 				addMoney(bonus);
 			}
 			
 			if(!goMoney) needsGoMoney = false;
 			
 			if(needsGoMoney){
-				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3passed &6Go &3and was given &2200", this);
-				sendMessage("&3You passed &6Go &3and were given &2200");
+				Mineopoly.plugin.getGame().getChannel().sendMessage("&b" + getName() + " &3走过了 &6出发 &3并已获得 &2200", this);
+				sendMessage("&3你走过了 &6出发 &3并已获得 &2200");
 				addMoney(200);
 				needsGoMoney = false;
 			}
@@ -386,26 +386,26 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 					else if(ownable.getType() == SectionType.UTILITY) type = "utility";
 					else type = "space";
 					if(canBuy(ownable)){										
-						sendMessage("&3You can buy this &b" + type + " &3for &2" + ownable.getPrice() + " &3with &b/" + Mineopoly.getPAlias() + " buy");
+						sendMessage("&3你可以购买这个 &b" + type + " &3并花费 &2" + ownable.getPrice() + " &3来 &b/" + Mineopoly.getPAlias() + " 购买");
 					}else{
-						sendMessage("&3You do not have enough money to buy this &b" + type + " (&2" + ownable.getPrice() + "&b)");
+						sendMessage("&3你没有足够的资金来购买这个 &b" + type + " (&2" + ownable.getPrice() + "&b)");
 						endTurnAuto = true;
 					}
 				}else{
 					if(canTravel()){
-						sendMessage("&3You can travel &bacross the board &3from this railroad with &b/" + Mineopoly.getMAlias() + " travel");
+						sendMessage("&3你可以使用铁路 &b穿过棋盘 &3并使用 &b/" + Mineopoly.getMAlias() + " 来旅行");
 					}else{						
 						endTurnAuto = true;
 					}
 				}
 			}
 			if(cardDrawn != null && cardDrawn.getResult() != CardResult.MOVE_RELATED)
-				sendMessage("&3Type &b/" + Mineopoly.getPAlias() + " info &3to view information for this space");
+				sendMessage("&3输入 &b/" + Mineopoly.getPAlias() + " info &3来查看这个地方的信息");
 			if(endTurnAuto && endAuto){
 				endTurnAutomatically();
 			}else if(endAuto && !isJailed()){
 				if(cardDrawn != null && cardDrawn.getResult() != CardResult.MOVE_RELATED)
-					if(totalRolls > 0) sendMessage("&3End your turn with &b/" + Mineopoly.getMAlias() + " et");
+					if(totalRolls > 0) sendMessage("&3用 &b/" + Mineopoly.getMAlias() + " et&3来结束你的回合");
 			}
 		}else{
 			this.sectionOn = section;
@@ -416,10 +416,10 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 	public void endTurnAutomatically(){
 		boolean ate = Mineopoly.config.allowAutomaticTurnEnding();
 		if(ate){
-			sendMessage("&aTurn ended automatically");
+			sendMessage("&a自动结束回合");
 			getPlayer().chat("/mineopoly end-turn");
 		}else{
-			sendMessage("&3End your turn with &b/" + Mineopoly.getMAlias() + " et");
+			sendMessage("&3用 &b/" + Mineopoly.getMAlias() + " et&3来结束你的回合");
 		}
 		endTurnAuto = false;
 	}
@@ -542,7 +542,7 @@ public class MineopolyPlayer extends MineopolyChannelListener{
 	
 	public ArrayList<OwnableSection> ownedSections(SectionType type){
 		if(type != SectionType.PROPERTY && type != SectionType.RAILROAD && type != SectionType.UTILITY){
-			throw new IllegalArgumentException("type must be PROPERTY, RAILROAD, or UTILITY");
+			throw new IllegalArgumentException("必须输入 PROPERTY, RAILROAD, 或 UTILITY");
 		}
 		ArrayList<OwnableSection> result = new ArrayList<OwnableSection>();
 		if(ownedSections.size() == 0) return result;
